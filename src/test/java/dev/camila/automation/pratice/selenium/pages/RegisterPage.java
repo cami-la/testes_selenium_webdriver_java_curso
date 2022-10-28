@@ -38,7 +38,7 @@ public class RegisterPage extends BasePage {
 	
 	public void insertEmailToRegister() {
 		if(super.isDisplayed(emailAddressLocator)) {
-			type("camila001@email.com", emailAddressLocator);
+			type("camila002@email.com", emailAddressLocator);
 			click(submitBtnLocator);
 		} else {
 			System.out.println("email textbox was not present");

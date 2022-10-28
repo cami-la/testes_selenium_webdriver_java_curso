@@ -1,7 +1,5 @@
 package dev.camila.automation.pratice.selenium.tests;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +19,7 @@ class RegisterPageTest {
 
 	@AfterEach
 	void tearDown() throws Exception {
-		//this.registerPage.quitWebDriver();
+		this.registerPage.quitWebDriver();
 	}
 
 	@Test
@@ -30,7 +28,7 @@ class RegisterPageTest {
 		this.registerPage.insertEmailToRegister();
 		
 		//then
-		String expected = "camila001@email.com";
+		String expected = "camila002@email.com";
 		String actual = this.registerPage.getEmailNewAccount();
 		Assertions.assertEquals(expected, actual);
 	}
