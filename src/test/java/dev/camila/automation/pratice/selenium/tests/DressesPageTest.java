@@ -31,5 +31,4 @@ class DressesPageTest {
 		Assertions.assertEquals("CASUAL DRESSES ", this.dressesPage.getTitlePage());
 		Assertions.assertFalse(this.URL.equals(dressesPage.getCurrentUrl()));
 	}
-
 }

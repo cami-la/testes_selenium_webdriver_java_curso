@@ -1,15 +1,20 @@
 package dev.camila.automation.pratice.selenium.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 	private WebDriver driver;
 	private Actions action;
+	private WebDriverWait wait;
 
 	public BasePage() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
@@ -67,5 +72,23 @@ public abstract class BasePage {
 		}
 		WebElement element = this.driver.findElement(locator);
 		action.moveToElement(element).click().build().perform();
+	}
+	
+	public String getTextByAttribute(By locator, String attributeName) {
+		return this.driver.findElement(locator).getAttribute(attributeName);
+	}
+	
+	public WebElement waitVisibilityOfElementLocated(By locator, Duration time) {
+		wait = new WebDriverWait(driver, time);
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public WebElement waitVisibilityOfElementLocated(By locator) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public Boolean isContainedInPageSource(String message) {
+		return driver.getPageSource().contains(message);
 	}
 }
