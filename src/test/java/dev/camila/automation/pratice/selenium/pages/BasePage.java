@@ -9,12 +9,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 	private WebDriver driver;
 	private Actions action;
 	private WebDriverWait wait;
+	private Select select;
 
 	public BasePage() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
@@ -91,4 +93,14 @@ public abstract class BasePage {
 	public Boolean isContainedInPageSource(String message) {
 		return driver.getPageSource().contains(message);
 	}
+	
+	public void selectByValue(By locator, String value) {
+		select = new Select(findElement(locator));
+		select.selectByValue(value);
+	}
+	
+	public void clear(By locator) {
+		this.driver.findElement(locator).clear();
+	}
+	
 }

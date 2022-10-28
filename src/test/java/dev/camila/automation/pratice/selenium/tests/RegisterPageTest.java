@@ -21,7 +21,7 @@ class RegisterPageTest {
 
 	@AfterEach
 	void tearDown() throws Exception {
-		this.registerPage.quitWebDriver();
+		//this.registerPage.quitWebDriver();
 	}
 
 	@Test
@@ -33,6 +33,20 @@ class RegisterPageTest {
 		String expected = "camila001@email.com";
 		String actual = this.registerPage.getEmailNewAccount();
 		Assertions.assertEquals(expected, actual);
+	}
+	
+	@Test
+	void test2() {
+		//when
+		this.registerPage.fillOutForm();
+		
+		//then
+		String expected = "Welcome to your account. Here you can manage all of your personal information and orders.";
+		String actual = this.registerPage.getWelcomeMessage();
+		Assertions.assertEquals(expected, actual);
+		
+		String actualUrl = this.registerPage.getCurrentUrl();
+		Assertions.assertFalse(this.URL.equals(actualUrl));
 	}
 
 }
