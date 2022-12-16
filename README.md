@@ -2,6 +2,8 @@
 
 <p>Conheça o Selenium WebDriver, a principal ferramenta de automação de páginas Web. Nesse contexto, explore a linguagem de programação Java e entenda como o Selenium automatiza as ações diretamente em seu browser.</p>
 
+<p align="center">❗❗ O SITE <a href="http://automationpractice.com/">http://automationpractice.com/</a> INFELIZMENTE ESTÁ FORA DO AR, POR FAVOR, <strong>USAR QUALQUER OUTRO SITE PARA EXECUTAR OS COMANDOS DO SELENIUM WEBDRIVE.</strong> SUGIRO: <a href="https://demo.automationtesting.in/">https://demo.automationtesting.in/</a>❗❗</p>
+
 <h3>Features</h3>
 <ol>
 	<li>Configuração de Testes Selenium WebDriver + Java</li>
